@@ -1,0 +1,32 @@
+apply plugin: 'com.android.application'
+
+android {
+    namespace 'com.example.groovytest'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.groovytest"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile '../AndroidManifest.xml'
+            java.srcDirs = ['../src']
+            res.srcDirs = ['../res']
+            assets.srcDirs = ['../assets']
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: '../libs', include: ['*.jar'])
+}
